@@ -34,6 +34,7 @@ const updateFlag = (element) => {
   img.src = newSrc;
 };
 const updateExchangeRate = async () => {
+ 
     let amount = document.querySelector(".amount input");
     let amtVal = amount.value;
   
@@ -62,6 +63,8 @@ const updateExchangeRate = async () => {
         if (rate) {
           let finalAmount = amtVal * rate;
           msg.innerText = `${amtVal} ${fromCurrency} = ${finalAmount.toFixed(2)} ${toCurrency}`;
+          msg.innerHTML = `<b>${msg.innerText}</b>`;
+          
         } else {
           msg.innerText = "Conversion rate not available for the selected currencies.";
         }
@@ -100,6 +103,6 @@ const swapCurrencies = () => {
     updateExchangeRate();
   };
   
-  // Event listener for the icon click to swap currencies
+ 
   const swapIcon = document.querySelector(".fa-arrow-right-arrow-left");
   swapIcon.addEventListener("click", swapCurrencies);
